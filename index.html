@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Go on a Date With Me?</title>
+
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:#333;
+  }
+
+  .container {
+    max-width: 650px;
+    padding:20px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fefefe;
+    opacity: 0.9;
+  }
+
+  .buttons {
+    margin-top: 25px;
+    display:flex;
+    justify-content:center;
+    gap: 15px;
+  }
+
+  button {
+    padding: 12px 28px;
+    font-size: 1rem;
+    border:none;
+    border-radius: 8px;
+    cursor:pointer;
+    transition:0.25s;
+  }
+
+  #yesBtn {
+    background:#ff6b81;
+    color:#fff;
+  }
+  #yesBtn:hover {
+    background:#e0546d;
+  }
+
+  #maybeBtn {
+    background:#fff;
+    color:#ff6b81;
+    border:2px solid #ff6b81;
+  }
+  #maybeBtn:hover {
+    background:#ffe5ec;
+  }
+
+  /* Polaroid animation */
+  .polaroid {
+    position: absolute;
+    width: 180px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    opacity: 0;
+    transform: rotate(-15deg);
+    animation: fall 4s ease forwards;
+  }
+
+  .polaroid img {
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-100%) rotate(-15deg); opacity:0; }
+    30% { opacity:1; }
+    100% { transform: translateY(120%) rotate(15deg); opacity:0; }
+  }
+
+  .message {
+    position:absolute;
+    bottom:40px;
+    left:0;right:0;
+    margin:auto;
+    color:white;
+    font-size:1.1rem;
+    opacity:0;
+    transition:1s;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <h1>Hey, would you go on a date with me?</h1>
+  <p>I planned something small, sweet, and special — just for you.</p>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="goToDetails()">Yes 💖</button>
+    <button id="maybeBtn" onclick="maybeLater()">Maybe later</button>
+  </div>
+</div>
+
+<div id="message" class="message"></div>
+
+<script>
+function goToDetails(){
+  window.location.href = "details.html"; 
+}
+
+function maybeLater(){
+  // Create polaroid
+  const polaroid = document.createElement("div");
+  polaroid.className = "polaroid";
+
+  // Free-to-use flower image (Unsplash)
+  polaroid.innerHTML = `
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80">
+  `;
+
+  // Random horizontal start point
+  polaroid.style.left = Math.random() * (window.innerWidth - 200) + "px";
+
+  document.body.appendChild(polaroid);
+
+  // Message
+  const msg = document.getElementById("message");
+  msg.textContent = "These flowers are for you… maybe you meant to press YES? 🌸";
+  msg.style.opacity = 1;
+
+  // Hide message after animation
+  setTimeout(()=>{ msg.style.opacity = 0; }, 3500);
+}
+</script>
+
+</body>
+</html>
