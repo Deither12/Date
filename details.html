@@ -1,146 +1,213 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Date Details - Enhanced</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    /* CSS Variables for Color Harmony */
-    :root {
-      --color-bg-primary: #fffdf7;
-      --color-text-dark: #2c2c2c;
-      --color-accent: #e8836f; /* Current Salmon/Red */
-      --color-shadow: rgba(0, 0, 0, 0.1);
-    }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
 
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--color-bg-primary);
-      color: var(--color-text-dark);
-      overflow-x: hidden; /* Prevents horizontal scroll from transitions */
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .section {
-      display: flex;
-      height: 100vh;
-      flex-wrap: wrap;
-      /* Add some subtle shadow to the whole section for depth */
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
-    }
+  <title>Date Details</title>
 
-    .section-left, .section-right {
-      flex: 1 1 50%;
-      position: relative;
-      overflow: hidden; /* Important for image zoom effect */
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-    .section-left img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease-out; /* Smooth transition for image zoom */
-      will-change: transform;
-    }
+  <style>
 
-    /* ✨ INTERACTION: Image Zoom on Hover */
-    .section-left:hover img {
-      transform: scale(1.05);
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .section-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem;
-      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth transition for lift */
-      will-change: transform, box-shadow;
-    }
-    
-    /* Specific background colors (can be moved to CSS classes if needed) */
-    #lunch-section .section-right { background-color: #d2e2d4; }
-    #stroll-section .section-right { background-color: #d7e8e6; }
-    #coffee-section .section-right { background-color: #f0e9d9; }
 
-    /* ✨ INTERACTION: Right Panel "Lift" on Hover */
-    .section-right:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px var(--color-shadow);
-    }
 
-    .section-right h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem; /* Slightly larger heading */
-      color: var(--color-accent);
-      margin-bottom: 1.5rem;
-      font-weight: 900; /* Bolder for impact */
-      /* ✨ VISUAL: Text shadow for a subtle pop-out effect */
-      text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7), 
-                   4px 4px 0px rgba(0, 0, 0, 0.1);
-      letter-spacing: 2px;
-    }
+    body {
 
-    .section-right p {
-      font-size: 1.25rem; /* Slightly larger body text */
-      max-width: 480px; /* Wider text block for better readability */
-      line-height: 1.7;
-      color: #555; /* Slightly muted body text */
-    }
+      font-family: 'Roboto', sans-serif;
 
-    /* --- Responsive Adjustments (Kept for mobile friendliness) --- */
-    @media(max-width: 768px) {
-      .section {
-        flex-direction: column;
-      }
-      .section-left, .section-right {
-        flex: 1 1 100%;
-        height: 50vh;
-      }
-      .section-right {
-        padding: 2rem;
-        text-align: center;
-        align-items: center;
-      }
-      .section-right:hover {
-        transform: none; /* Disable lift on small screens */
-        box-shadow: none;
-      }
-    }
-  </style>
+      background-color: #fffdf7;
+
+      color: #333;
+
+    }
+
+
+
+    .section {
+
+      display: flex;
+
+      height: 100vh;
+
+      flex-wrap: wrap;
+
+    }
+
+
+
+    .section-left, .section-right {
+
+      flex: 1 1 50%;
+
+      position: relative;
+
+    }
+
+
+
+    .section-left img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+    }
+
+
+
+    .section-right {
+
+      background-color: #d2e2d4;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      padding: 4rem;
+
+    }
+
+
+
+    .section-right h1 {
+
+      font-family: 'Playfair Display', serif;
+
+      font-size: 3.8rem;
+
+      color: #e8836f;
+
+      margin-bottom: 1rem;
+
+    }
+
+
+
+    .section-right p {
+
+      font-size: 1.2rem;
+
+      max-width: 420px;
+
+      line-height: 1.6;
+
+    }
+
+
+
+    @media(max-width: 768px) {
+
+      .section {
+
+        flex-direction: column;
+
+      }
+
+      .section-left, .section-right {
+
+        flex: 1 1 100%;
+
+        height: 50vh;
+
+      }
+
+      .section-right {
+
+        padding: 2rem;
+
+        text-align: center;
+
+        align-items: center;
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
 <body>
 
-    <div class="section" id="lunch-section">
-    <div class="section-left">
-      <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80" alt="Cozy Lunch Date Setting">
-    </div>
-    <div class="section-right">
-      <h1>LUNCH</h1>
-      <p>A cozy lunch date in a **warm and relaxing place** — just the two of us, good conversation, and great food.</p>
-    </div>
-  </div>
 
-    <div class="section" id="stroll-section" style="flex-direction: row-reverse;">
-    <div class="section-left">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Couple on a quiet nature walk">
-    </div>
-    <div class="section-right">
-      <h1>STROLL</h1>
-      <p>A quiet walk together — **soft breeze**, peaceful surroundings, and moments that feel gentle and simple.</p>
-    </div>
-  </div>
 
-    <div class="section" id="coffee-section">
-    <div class="section-left">
-      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80" alt="Warm coffee and soft lighting">
-    </div>
-    <div class="section-right">
-      <h1>COFFEE</h1>
-      <p>Ending the day with **warm coffee, soft lights,** and slow conversations — the perfect way to end our date.</p>
-    </div>
-  </div>
+  <!-- LUNCH SECTION -->
+
+  <div class="section">
+
+    <div class="section-left">
+
+      <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80" alt="Lunch Image">
+
+    </div>
+
+    <div class="section-right">
+
+      <h1>LUNCH</h1>
+
+      <p>A cozy lunch date in a warm and relaxing place — just the two of us, good conversation, and great food.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- STROLL SECTION -->
+
+  <div class="section">
+
+    <div class="section-left">
+
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Stroll">
+
+    </div>
+
+    <div class="section-right" style="background-color:#d7e8e6;">
+
+      <h1>STROLL</h1>
+
+      <p>A quiet walk together — soft breeze, peaceful surroundings, and moments that feel gentle and simple.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- COFFEE SECTION -->
+
+  <div class="section">
+
+    <div class="section-left">
+
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80" alt="Coffee">
+
+    </div>
+
+    <div class="section-right" style="background-color:#f0e9d9;">
+
+      <h1>COFFEE</h1>
+
+      <p>Ending the day with warm coffee, soft lights, and slow conversations — the perfect way to end our date.</p>
+
+    </div>
+
+  </div>
+
+
 
 </body>
+
 </html>
